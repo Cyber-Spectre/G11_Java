@@ -12,11 +12,11 @@ package Module_2;
  */
 public class cricle {
     
-    private double radius = 1.0;
+    protected double radius = 1.0;
     
-    private String colour = "red";
+    protected String colour = "red";
     
-    private static int count = 0;
+    protected static int count = 0;
     
     public cricle() {
         
@@ -69,6 +69,9 @@ public class cricle {
     
     public double getArea() {
         double area = ((radius * radius) * Math.PI);
+        area = area * 100;
+        area = Math.round(area);
+        area = area / 100;
         
         return area;
     }
@@ -83,9 +86,6 @@ public class cricle {
 class clyinder extends cricle {
     
     private double height = 1.0;
-    private double radius = getRadius();
-    private String colour = getColour();
-    private static int count = 0;
     
     public clyinder() {
         
@@ -113,47 +113,25 @@ class clyinder extends cricle {
         count++;
     }
     
-    public double Cly_getRadius() {
-        return radius;
-    }
-    
-    public String Cly_getColour() {
-        
-        return colour;
-        
-    }
-    
-    public double Cly_getHeight() {
+    public double getHeight() {
         
         return height;
         
     }
     
-    public void Cly_setRadius(double radius) {
-        
-        this.radius = radius;
-        
-    }
-    
-    public void Cly_setColour(String colour) {
-        
-        this.colour = colour;
-        
-    }
-    
-    public void Cly_setHeight(double height) {
+    public void setHeight(double height) {
         
         this.height = height;
         
     }
     
-    public String Cly_toString() {
+    public String toString() {
         
         return("Radius = " + radius + ", Colour = " + colour + ", Height = " + height);
         
     }
     
-    public double Cly_getVolume () {
+    public double getVolume () {
         
         double volume = Math.PI * (radius * radius) * height;
         volume = volume * 100;
@@ -164,16 +142,7 @@ class clyinder extends cricle {
         
     }
     
-    public double Cly_getArea() {
-        double area = ((radius * radius) * Math.PI);
-        area = area * 100;
-        area = Math.round(area);
-        area = area / 100;
-        
-        return area;
-    }
-    
-    public double Cly_getSurfArea() {
+    public double getSurfArea() {
         
         double surfArea = ((2 * (Math.PI * radius * height)) + (2 * (Math.PI * (radius * radius))));
         surfArea = surfArea * 100;
@@ -183,12 +152,5 @@ class clyinder extends cricle {
         return surfArea;
         
     }
-    
-    public static String Cly_getCount() {
-        
-        return("cylinder count: " + count);
-        
-    }
-    
     
 }
