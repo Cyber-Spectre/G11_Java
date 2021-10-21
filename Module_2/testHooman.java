@@ -18,9 +18,9 @@ public class testHooman {
         System.out.println(hooman1.toString());
         hooman1.add(7, 8);
         System.out.println(hooman2.toString());
-        hooman2.add(15, 28);
+        hooman2.add("eight", "five");
         System.out.println(hooman3.toString());
-        hooman3.add("eight", "three");
+        hooman3.add("efgheghjh", "seven");
     }
     
 }

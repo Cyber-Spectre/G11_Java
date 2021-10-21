@@ -30,27 +30,33 @@ public class Hooman {
         this.city = city;
     }
     
-    public String getName() { //makes name accessible
+    public String getName() { 
+        //makes name accessible
         return name;
     }
     
-    public int getAge() { //makes age accessible
+    public int getAge() { 
+        //makes age accessible
         return age;
     }
     
-    public String getCity() { //makes city accessible
+    public String getCity() { 
+        //makes city accessible
         return city;
     }
     
-    public void setName() { //changes name parameters
+    public void setName() { 
+        //changes name parameters
         this.name = name;
     }
     
-    public void setAge() { //changes age parameters
+    public void setAge() { 
+        //changes age parameters
         this.age = age;
     }
     
-    public void setCity() { //changes city parameters
+    public void setCity() { 
+        //changes city parameters
         this.city = city;
     }
     
@@ -60,7 +66,7 @@ public class Hooman {
         the name of the human
         */
         int sum = (num1 + num2);
-        System.out.println("Numbers: " + num1 + " " + num2 + "\n" + name + " says the sum is " + sum);
+        System.out.println("Numbers: " + num1 + " " + num2 + "\n" + name + " says the sum is " + sum + "\n");
         return sum;
     }
     
@@ -148,13 +154,13 @@ public class Hooman {
             sum = -1;
         }
         else{
-        System.out.println("Numbers: " + num1 + " " + num2 + "\n" + name + " says the sum is " + sum);
+        System.out.println("Numbers: " + num1 + " " + num2 + "\n" + name + " says the sum is " + sum + "\n");
         }
         return sum;
     }
     
-    public String toString() {
-        
+    public String toString() { 
+        //Prints out the output for the test program
         return("This human's name is " + name + ", they are " + age + " years old, and they live in " + city);
     }
     
