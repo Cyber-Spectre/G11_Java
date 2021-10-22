@@ -159,6 +159,15 @@ public class Hooman {
         return sum;
     }
     
+    public String checkName() {
+        return name;
+    }
+    
+    public String birthday() {
+        age++; 
+        return ("Happy birthday " + name + ", you are now " + age);
+    }
+    
     public String toString() { 
         //Prints out the output for the test program
         return("This human's name is " + name + ", they are " + age + " years old, and they live in " + city);
