@@ -74,7 +74,7 @@ public class Hooman {
         /*
         Takes two strings as inputs, converts the strings to their matching 
         integers, adds up the integers, and prints the sum with the name of the 
-        human
+        human. If there is an error with the inputs, it will print an error
         */
         int n1 = 0;
         int n2 = 0;
@@ -160,10 +160,12 @@ public class Hooman {
     }
     
     public static String checkName(Hooman hooman) {
+        //checks the name of the human and prints is out
         return hooman.getName();
     }
     
     public static void birthday(Hooman hooman) {
+        //increases the age of the human by 1 and prints is out
         hooman.age++;
         System.out.println("Happy birthday " + hooman.getName() + ", you are now " + hooman.getAge());
     }
