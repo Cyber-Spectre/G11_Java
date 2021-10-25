@@ -14,18 +14,21 @@ public class testHooman {
     public static void main(String[] args) {
         Hooman hooman1 = new Hooman();
         Hooman hooman2 = new Hooman("Joe", 36);
-        Hooman hooman3 = new Hooman("Billy", 69, "Fresno");
-        System.out.println(hooman1.checkName());
+        Hooman hooman3 = new Hooman("Billy", 69, "Bogor");
+        
+        System.out.println(Hooman.checkName(hooman1));
         System.out.println(hooman1.toString());
-        System.out.println(hooman1.birthday());
+        Hooman.birthday(hooman1);
         hooman1.add(17, 8);
-        System.out.println(hooman2.checkName());
+        
+        System.out.println(Hooman.checkName(hooman2));
         System.out.println(hooman2.toString());
-        System.out.println(hooman2.birthday());
+        Hooman.birthday(hooman2);
         hooman2.add("eight", "five");
-        System.out.println(hooman3.checkName());
+        
+        System.out.println(Hooman.checkName(hooman3));
         System.out.println(hooman3.toString());
-        System.out.println(hooman3.birthday());
+        Hooman.birthday(hooman3);
         hooman3.add("efgheghjh", "seven");
         
     }

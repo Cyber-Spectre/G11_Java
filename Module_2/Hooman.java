@@ -159,13 +159,13 @@ public class Hooman {
         return sum;
     }
     
-    public String checkName() {
-        return name;
+    public static String checkName(Hooman hooman) {
+        return hooman.getName();
     }
     
-    public String birthday() {
-        age++; 
-        return ("Happy birthday " + name + ", you are now " + age);
+    public static void birthday(Hooman hooman) {
+        hooman.age++;
+        System.out.println("Happy birthday " + hooman.getName() + ", you are now " + hooman.getAge());
     }
     
     public String toString() { 
