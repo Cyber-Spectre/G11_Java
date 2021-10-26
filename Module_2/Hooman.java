@@ -16,15 +16,17 @@ public class Hooman {
     private String city = "Örebro";
     
     public Hooman() {
-        
+        //Constructor with no inputs
     }
     
     public Hooman(String name, int age) {
+        //Constructor that takes name and age
         this.name = name;
         this.age = age;
     }
     
     public Hooman(String name, int age, String city) {
+        //Constructor that takes name, age, and city
         this.name = name;
         this.age = age;
         this.city = city;
