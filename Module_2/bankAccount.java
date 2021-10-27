@@ -12,15 +12,16 @@ package Module_2;
 public class bankAccount {
     //data variables
     private static int accountNum = 1000000;
+    private int personalNum = 0;
     private String username = "R̴E̸D̷A̷C̵T̴E̴D̵";
     private double balance = 00.00;
-    private double annualInterest = 0.25 * balance;
+    private double annualInterest = 1.25;
     private double withdrawFee = 1.5;
-    private boolean overDrawn = false;
     
     public bankAccount() {
         //Constructor with no inputs, increases accountNum by 1
         accountNum++;   
+        personalNum = accountNum;
     }
     
     public bankAccount(String username) {
@@ -29,6 +30,7 @@ public class bankAccount {
         characters, use default username, increases accountNum by 1
         */
         accountNum++;
+        personalNum = accountNum;
         if (username.length() > 20) {
             System.out.println("That username is too long, using default username");
         }
@@ -44,6 +46,7 @@ public class bankAccount {
         by 1
         */
         accountNum++;
+        personalNum = accountNum;
         this.balance = Math.round(balance * 100) / 100;
     }
     
@@ -54,6 +57,7 @@ public class bankAccount {
         accountNum by 1
         */
         accountNum++;
+        personalNum = accountNum;
         if (username.length() > 20){
             System.out.println("That username is too long, using default username");
         }
@@ -101,15 +105,21 @@ public class bankAccount {
     }
     
     public void deposit(double deposit) {
-        
+        //Takes in a double, rounds it and adds it to the balance
+        balance = (Math.round(deposit * 100 / 100) + balance);
     }
     
     public void withdraw(double withdraw) {
-        
+        balance = (balance - withdrawFee) - (Math.round(withdraw * 100 / 100));
     }
     
     public boolean isOverDrawn() {
-        return overDrawn;
+        if(balance < 0.0) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
 }
