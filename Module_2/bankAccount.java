@@ -154,6 +154,7 @@ public class bankAccount {
     }
     
     public String toString() {
+        //Prints output for test program
         if(balance < 0.0) {
         return("User " + personalNum + " \"" + username + "\" \n"
                 + "Balance: ($" + Math.abs(balance) + ")");
