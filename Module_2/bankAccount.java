@@ -47,7 +47,7 @@ public class bankAccount {
         */
         accountNum++;
         personalNum = accountNum;
-        this.balance = Math.round(balance * 100) / 100;
+        this.balance = balance;
     }
     
     public bankAccount(String username, double balance) {
@@ -65,7 +65,7 @@ public class bankAccount {
             this.username = username;
         }
         
-        this.balance = Math.round(balance * 100) / 100;
+        this.balance = balance;
         
     }
     
@@ -101,24 +101,66 @@ public class bankAccount {
         }
         else {
             this.username = username;
+            System.out.println("Username successfully changed to " + this.username);
         }
     }
     
     public void deposit(double deposit) {
         //Takes in a double, rounds it and adds it to the balance
-        balance = (Math.round(deposit * 100 / 100) + balance);
+        balance = deposit + balance;
+        
+        if (balance < 0.0) {
+            System.out.println("User deposited $" + deposit + ", new balance is ($" + Math.abs(balance) + ")");
+        }
+        else {
+            System.out.println("User deposited $" + deposit + ", new balance is $" + balance);
+        }
     }
     
     public void withdraw(double withdraw) {
-        balance = (balance - withdrawFee) - (Math.round(withdraw * 100 / 100));
+        /*
+        Takes in a double, subtracts withdrawFee from balance, then subtracts 
+        the double from the balance
+        */
+        balance = (balance - withdrawFee) - withdraw;
+        
+        if (balance < 0.0) {
+            System.out.println("User withdrew $" + withdraw + ", withdrawal fee $" + withdrawFee + ", new balance is ($" + Math.abs(balance) + ")");
+        }
+        else {
+            System.out.println("User withdrew $" + withdraw + ", new balance is $" + balance);
+        }
     }
     
     public boolean isOverDrawn() {
+        //Checks if balance is overdrawn
         if(balance < 0.0) {
             return true;
         }
         else {
             return false;
+        }
+    }
+    
+    public void addInterest() {
+        //Adds annualInterest to balance if balance is above 0.0
+        if(balance > 0.0) {
+        balance = (balance * annualInterest);
+            System.out.println("Annual interest added, you now have $" + balance);
+        }
+        else {
+            System.out.println("No annual interest can be added");
+        }
+    }
+    
+    public String toString() {
+        if(balance < 0.0) {
+        return("User " + personalNum + " \"" + username + "\" \n"
+                + "Balance: ($" + Math.abs(balance) + ")");
+        }
+        else {
+            return("User " + personalNum + " \"" + username + "\" \n"
+                + "Balance: $" + balance);
         }
     }
 
