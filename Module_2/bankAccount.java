@@ -108,6 +108,9 @@ public class bankAccount {
     public void deposit(double deposit) {
         //Takes in a double, rounds it and adds it to the balance
         balance = deposit + balance;
+        balance = 100 * balance;
+        balance = Math.round(balance);
+        balance = balance / 100;
         
         if (balance < 0.0) {
             System.out.println("User deposited $" + deposit + ", new balance is ($" + Math.abs(balance) + ")");
@@ -123,6 +126,9 @@ public class bankAccount {
         the double from the balance
         */
         balance = (balance - withdrawFee) - withdraw;
+        balance = 100 * balance;
+        balance = Math.round(balance);
+        balance = balance / 100;
         
         if (balance < 0.0) {
             System.out.println("User withdrew $" + withdraw + ", withdrawal fee $" + withdrawFee + ", new balance is ($" + Math.abs(balance) + ")");
@@ -146,6 +152,10 @@ public class bankAccount {
         //Adds annualInterest to balance if balance is above 0.0
         if(balance > 0.0) {
         balance = (balance * annualInterest);
+        balance = 100 * balance;
+        balance = Math.round(balance);
+        balance = balance / 100;
+        
             System.out.println("Annual interest added, you now have $" + balance);
         }
         else {
@@ -154,7 +164,7 @@ public class bankAccount {
     }
     
     public String toString() {
-        //Prints output for test program
+        //Sets string for test program to print
         if(balance < 0.0) {
         return("User " + personalNum + " \"" + username + "\" \n"
                 + "Balance: ($" + Math.abs(balance) + ")");

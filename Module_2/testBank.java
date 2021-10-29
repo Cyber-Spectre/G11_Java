@@ -43,7 +43,7 @@ public class testBank {
         
         System.out.println("\n==============================\n");
         
-        bankAccount account4 = new bankAccount("Jeff Bezos", 8163952.5);
+        bankAccount account4 = new bankAccount("Jeff Bezos", 8163952.69);
         System.out.println(account4.toString());
         account4.withdraw(500000.0);
         account4.withdraw(1600500.0);
