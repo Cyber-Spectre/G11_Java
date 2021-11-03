@@ -188,7 +188,7 @@ public class Assignment1 {
             }
            
         }
-        while (run == true);    
+        while (run);    
         
     }
     
