@@ -149,17 +149,13 @@ public class Assignment1 {
                 
                 for (int y = 0; y < 100001; y++) {
                     
-                    for(int x = 0; x < array.length; x++) {
+                    int temp = array[x];
 
-                        int temp = array[x];
+                    int random = rand.nextInt(100);
 
-                        int random = rand.nextInt(100);
+                    array[x] = array[random];
 
-                        array[x] = array[random];
-
-                        array[random] = temp;
-
-                    }
+                    array[random] = temp;
                     
                     check2 = true;
                     
