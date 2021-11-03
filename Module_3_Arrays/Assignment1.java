@@ -15,8 +15,8 @@ public class Assignment1 {
     
     public static void main(String[] args) {
         
-        int [] array = new int[100];
-        int y;
+        int [] array = new int[101];
+        int numHolder;
         boolean run = true;
         Scanner scan1 = new Scanner(System.in);
         Random rand = new Random();
@@ -28,76 +28,165 @@ public class Assignment1 {
             + "1: Populate the array randomly \n"
             + "2: Populate the array sequentially from 1 to 100 \n"
             + "3: Display the array \n"
-            + "4: Shuffle the array \n");
+            + "4: Shuffle the array \n"
+            + "5: Find number \n"
+            + "6: Ascending order check \n"
+            + "7: Shuffle until ascending order \n");
         
         int input = scan1.nextInt();
         
         switch(input) {
             
-            case 0:
+            case 0: //Exit program
                 
                 run = false;
                 
             break;
             
-            case 1:
+            case 1: //Populate randomly
                 
-                for (int x = 0; x < 99; x++) {
+                for (int x = 0; x < array.length; x++) {
                     
-                    y = x + 1;
-                    
-                    array [y] = (int)(rand.nextInt(99) + 1);
+                    array [x] = (rand.nextInt(101));
                     
                 }
                 
             break;
             
-            case 2:
+            case 2: //populate sequentially
                 
-                for (int x = 0; x < 99; x++) {
+                for (int x = 0; x < array.length; x++) {
                     
-                    y = x + 1;
-                    
-                    array [y] = (int)(y);
+                    array [x] = (x);
                     
                 }
                 
             break;
             
-            case 3:
+            case 3: //display
                 
-                for(int x = 0; x < 99; x++) {
+                for(int x = 1; x < array.length; x++) {
                     
-                    y = x + 1;
+                    boolean check = true;
                     
-                    System.out.println("Array number " + (y) + ": " + array[y]);  
+                    System.out.println("Array number " + (x) + ": " + array[x]);  
                 
+                }
+                
+                System.out.println("\n");
+                
+            break;
+            
+            case 4: //shuffle
+                
+                for(int x = 0; x < array.length; x++) {
+                    
+                    int temp = array[x];
+                    
+                    int random = rand.nextInt(100);
+                    
+                    array[x] = array[random];
+                    
+                    array[random] = temp;
+                    
                 }
                 
             break;
             
-            case 4:
+            case 5: //Find number
                 
-                for(int x = 0; x < 300; x++) {
+                int findNum;
+                
+                System.out.println("Input a number you want to find \n");
+                
+                findNum = scan1.nextInt();
+                String holder = "null";
+                
+                for (int x = 0; x < array.length; x++) {
                     
-                    int r1;
-                    int r2;
-                    int temp;
+                    if(array[x] == findNum) {
+                        holder = ("Array number " + x + ": " + array[x] + "\n");
+                    }
                     
-                    r1 = rand.nextInt(99);
-                    r2 = rand.nextInt(99);
+                }    
+                
+                if(holder == "null") {
+                    findNum = -1;
+                    System.out.println("No array has that value: " + findNum + "\n");
+                }
+                else {
+                    System.out.println(holder);
+                }
                     
-                    temp = array[r1];
-                    array[r1] = array[r2];
-                    array[r2] = temp;
+            break;
+            
+            case 6: //Check Ascending order
+                
+                boolean check = true;
+                
+                for (int x = 0; x < array.length; x++) {
                     
+                    if(array[x] != x) {
+                        
+                        check = false;
+                        
+                    }
+                    
+                }
+                  
+                if(!check) {
+                    System.out.println("Array is not in ascending order \n");
+                }
+                else {
+                    System.out.println("Array is in ascending order \n");
+                }
+                
+            break;
+            
+            case 7: //shuffle until ascending order
+                
+                boolean check2 = true;
+                
+                for (int y = 0; y < 100001; y++) {
+                    
+                    for(int x = 0; x < array.length; x++) {
+
+                        int temp = array[x];
+
+                        int random = rand.nextInt(100);
+
+                        array[x] = array[random];
+
+                        array[random] = temp;
+
+                    }
+                    
+                    check2 = true;
+                    
+                    for (int x = 0; x < array.length; x++) {
+                        
+                        if(array[x] != x) {
+
+                            check2 = false;
+                            
+                        }
+
+                    }
+                    
+                    if(check2) {
+                        System.out.println("Successfully shuffled to ascending order \n");
+                        break;
+                    }
+                    else if(y == 100000) {
+                        System.out.println("Too many shuffle attempts, stopping \n");
+                        break;
+                    }
                 }
                 
             break;
             
             }
            
-        
         }
         while (run == true);    
         
