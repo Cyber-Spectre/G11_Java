@@ -45,9 +45,9 @@ public class Assignment1 {
             
             case 1: //Populate randomly
                 
-                for (int x = 0; x < array.length; x++) {
+                for (int x = 1; x < array.length; x++) {
                     
-                    array [x] = (rand.nextInt(101));
+                    array [x] = rand.nextInt(100) + 1;
                     
                 }
                 
@@ -55,7 +55,7 @@ public class Assignment1 {
             
             case 2: //populate sequentially
                 
-                for (int x = 0; x < array.length; x++) {
+                for (int x = 1; x < array.length; x++) {
                     
                     array [x] = (x);
                     
@@ -79,11 +79,11 @@ public class Assignment1 {
             
             case 4: //shuffle
                 
-                for(int x = 0; x < array.length; x++) {
+                for(int x = 1; x < array.length; x++) {
                     
                     int temp = array[x];
                     
-                    int random = rand.nextInt(100);
+                    int random = rand.nextInt(100) + 1;
                     
                     array[x] = array[random];
                     
@@ -102,7 +102,7 @@ public class Assignment1 {
                 findNum = scan1.nextInt();
                 String holder = "null";
                 
-                for (int x = 0; x < array.length; x++) {
+                for (int x = 1; x < array.length; x++) {
                     
                     if(array[x] == findNum) {
                         holder = ("Array number " + x + ": " + array[x] + "\n");
@@ -124,7 +124,7 @@ public class Assignment1 {
                 
                 boolean check = true;
                 
-                for (int x = 0; x < array.length; x++) {
+                for (int x = 1; x < array.length; x++) {
                     
                     if(array[x] != x) {
                         
@@ -146,20 +146,44 @@ public class Assignment1 {
             case 7: //shuffle until ascending order
                 
                 boolean check2 = true;
+                boolean valuecheck = true;
                 
-                for (int y = 0; y < 100001; y++) {
+                int counter = 1;
+                
+                for (int y = 1; y < 1001; y++) {
                     
-                    int temp = array[x];
+                    if (counter <= 99) {
+                        counter++;
+                    }
+                    else {
+                        counter = 1;
+                    }
+                    
+                    if(array[counter] != counter) {
 
-                    int random = rand.nextInt(100);
+                        int temp = array[counter];
 
-                    array[x] = array[random];
+                        int random = rand.nextInt(100) + 1;
+                        
+                        if(array[random] != random) {
 
-                    array[random] = temp;
+                        array[counter] = array[random];
+
+                        array[random] = temp;
+                        
+                        }
+                        else {
+                            y--;
+                        }
+                        
+                    }
+                    else {
+                        y--;
+                    }
                     
                     check2 = true;
                     
-                    for (int x = 0; x < array.length; x++) {
+                    for (int x = 1; x < array.length; x++) {
                         
                         if(array[x] != x) {
 
@@ -173,13 +197,13 @@ public class Assignment1 {
                         System.out.println("Successfully shuffled to ascending order \n");
                         break;
                     }
-                    else if(y == 100000) {
+                    else if(y == 1000) {
                         System.out.println("Too many shuffle attempts, stopping \n");
                         break;
                     }
                 }
                 
-            break;
+                break;
             
             }
            
