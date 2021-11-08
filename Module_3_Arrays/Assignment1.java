@@ -31,7 +31,10 @@ public class Assignment1 {
             + "4: Shuffle the array \n"
             + "5: Find number \n"
             + "6: Ascending order check \n"
-            + "7: Shuffle until ascending order \n");
+            + "7: Shuffle until ascending order \n"
+            + "8: Scan for lowest value \n"
+            + "9: Scan for highest value \n"
+            + "10: Check how many times a number appears \n");
         
         int input = scan1.nextInt();
         
@@ -124,12 +127,12 @@ public class Assignment1 {
                 
                 boolean check = true;
                 
-                for (int x = 1; x < array.length; x++) {
+                for (int x = 1; x < array.length - 1; x++) {
                     
-                    if(array[x] != x) {
-                        
+                    if(array[x] >= array[(x + 1)]) {
+
                         check = false;
-                        
+
                     }
                     
                 }
@@ -146,26 +149,25 @@ public class Assignment1 {
             case 7: //shuffle until ascending order
                 
                 boolean check2 = true;
-                boolean valuecheck = true;
                 
                 int counter = 1;
                 
-                for (int y = 1; y < 1001; y++) {
+                for (int y = 1; y < 100001; y++) {
                     
-                    if (counter <= 99) {
+                    if (counter <= (99)) {
                         counter++;
                     }
                     else {
                         counter = 1;
                     }
                     
-                    if(array[counter] != counter) {
+                    if(counter < 99 && array[counter] >= array[counter + 1]) {
 
                         int temp = array[counter];
 
-                        int random = rand.nextInt(100) + 1;
+                        int random = rand.nextInt(100);
                         
-                        if(array[random] != random) {
+                        if(array[random] >= array[random + 1]) {
 
                         array[counter] = array[random];
 
@@ -177,15 +179,30 @@ public class Assignment1 {
                         }
                         
                     }
+                    else if(array[counter] < array[counter - 1]) {
+                        
+                        int temp = array[counter];
+
+                        int random = rand.nextInt(100);
+                        
+                        if(array[random] >= array[random + 1]) {
+
+                        array[counter] = array[random];
+
+                        array[random] = temp;
+                        
+                        }
+                        
+                    }
                     else {
                         y--;
                     }
                     
                     check2 = true;
                     
-                    for (int x = 1; x < array.length; x++) {
+                    for (int x = 1; x < array.length - 1; x++) {
                         
-                        if(array[x] != x) {
+                        if(array[x] > array[(x + 1)]) {
 
                             check2 = false;
                             
@@ -197,13 +214,76 @@ public class Assignment1 {
                         System.out.println("Successfully shuffled to ascending order \n");
                         break;
                     }
-                    else if(y == 1000) {
+                    else if(y == 100000) {
                         System.out.println("Too many shuffle attempts, stopping \n");
                         break;
                     }
                 }
                 
-                break;
+            break;
+                
+            case 8: //Scan for lowest
+                
+                int lowest = 999;
+                int lowArray = 0;
+                
+                for (int x = 1; x < array.length; x++) {
+                    
+                    if(array[x] < lowest) {
+                        lowest = array[x];
+                        lowArray = x;
+                    }
+                    
+                }
+                
+                System.out.println("Array " + lowArray + " has the lowest value of " + lowest + "\n");
+                
+            break;
+            
+            case 9: //Scan for highest
+                
+                int highest = 0;
+                int highArray = 0;
+                
+                for (int x = 1; x < array.length; x++) {
+                    
+                    if(array[x] > highest) {
+                        highest = array[x];
+                        highArray = x;
+                    }
+                    
+                }
+                
+                System.out.println("Array " + highArray + " has the highest value of " + highest + "\n");
+                
+            break;
+            
+            case 10: //check how many times a number appears
+                
+                int numAmount = 0;
+                
+                System.out.println("Input a number you want to find \n");
+                
+                findNum = scan1.nextInt();
+                
+                for (int x = 1; x < array.length; x++) {
+                    
+                    if(array[x] == findNum) {
+                        numAmount++;
+                    }
+                    
+                }
+                
+                if(numAmount == 0) {
+                    System.out.println("No array has that value");
+                }
+                else {
+                    System.out.println(numAmount + " arrays have that value");
+                }
+                
+            break;
+                
+                
             
             }
            
