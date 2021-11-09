@@ -16,7 +16,6 @@ public class Assignment1 {
     public static void main(String[] args) {
         
         int [] array = new int[101];
-        int numHolder;
         boolean run = true;
         Scanner scan1 = new Scanner(System.in);
         Random rand = new Random();
@@ -311,7 +310,9 @@ public class Assignment1 {
                 
                 for (int x = 1; x < (array.length - 10); x++) {
                     
-                    tempsum = (array[x] + array[x + 1] + array[x + 2] + array[x + 3] + array[x + 4] + array[x + 5] + array[x + 6] + array[x + 7] + array[x + 8] + array[x + 9] + array[x + 10]);
+                    tempsum = (array[x] + array[x + 1] + array[x + 2] + array[x + 3]
+                            + array[x + 4] + array[x + 5] + array[x + 6] + array[x + 7]
+                            + array[x + 8] + array[x + 9] + array[x + 10]);
                     
                     if(tempsum > sum) {
                         sum = tempsum;
