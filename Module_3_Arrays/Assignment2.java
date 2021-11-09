@@ -60,7 +60,11 @@ public class Assignment2 {
                                 + array[x][2] + " | " + array[x][2] + " | " + array[x][4] 
                                 + " | " + array[x][5] + " | " + array[x][6] + " | " 
                                 + array[x][7] + " | " + array[x][8] + " | " + array[x][9] 
-                                + " | " + array[x][10]);
+                                + " | " + array[x][10] + " | " + array[x][11] + " | " 
+                                + array[x][12] + " | " + array[x][13] + " | " + array[x][14]
+                                + " | " + array[x][15] + " | " + array[x][16] + " | " 
+                                + array[x][17] + " | " + array[x][18] + " | " + array[x][19]
+                                + " | " + array[x][20] + "\n");
                         
                     }
                     
