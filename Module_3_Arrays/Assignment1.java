@@ -34,7 +34,9 @@ public class Assignment1 {
             + "7: Shuffle until ascending order \n"
             + "8: Scan for lowest value \n"
             + "9: Scan for highest value \n"
-            + "10: Check how many times a number appears \n");
+            + "10: Check how many times a number appears \n"
+            + "11: replace all arrays with chosen value with another chosen value \n"
+            + "12: Find 10 consecutive arrays with highest added sum \n");
         
         int input = scan1.nextInt();
         
@@ -283,7 +285,42 @@ public class Assignment1 {
                 
             break;
                 
+            case 11: //replace value with other value
                 
+                System.out.println("Input a value to find and a value to replace with");
+                
+                int value1 = scan1.nextInt();
+                int value2 = scan1.nextInt();
+                
+                for (int x = 1; x < array.length; x++) {
+                    
+                    if(array[x] == value1) {
+                        array[x] = value2;
+                    }
+                    
+                    System.out.println("replaced all arrays with the value of " + value1 + " with " + value2 + "\n");
+                    
+                }
+                
+            break; 
+            
+            case 12: //Find 10 consecutive indexes with highest sum
+                
+                int tempsum = 0;
+                int sum = 0;
+                
+                for (int x = 1; x < (array.length - 10); x++) {
+                    
+                    tempsum = (array[x] + array[x + 1] + array[x + 2] + array[x + 3] + array[x + 4] + array[x + 5] + array[x + 6] + array[x + 7] + array[x + 8] + array[x + 9] + array[x + 10]);
+                    
+                    if(tempsum > sum) {
+                        sum = tempsum;
+                    }
+                }
+                
+                System.out.println("The highest sum of 10 consecutive indexes is " + sum + "\n");
+                
+            break;
             
             }
            
