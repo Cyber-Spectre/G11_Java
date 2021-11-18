@@ -1,0 +1,93 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package File_Streaming;
+
+/**
+ *
+ * @author 105337005
+ */
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Random;
+import java.util.Scanner;
+public class SkillBuild2 {
+    
+    public static void main(String[] args) {
+        
+        File firstName = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\firstNames.txt");
+        String firstData = "";
+        String [] firstArray = new String[21];
+        File lastName = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\lastName.txt");
+        String lastData = "";
+        String [] lastArray = new String[21];
+        File landName = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\land.txt");
+        String landData = "";
+        String [] landArray = new String[21];
+        int e = 0;
+        Scanner myReader;
+        
+        try {
+            myReader = new Scanner(firstName);
+            
+            while (myReader.hasNextLine()) {
+                e++;
+                firstData = myReader.nextLine();
+                firstArray[e] = firstData;
+            }
+            myReader.close();
+            e = 0;
+        } 
+        catch (FileNotFoundException i) {
+            
+        System.out.println("An error occurred.");
+        i.printStackTrace();
+        }
+        try {
+            myReader = new Scanner (lastName);
+            
+            while (myReader.hasNextLine()) {
+                e++;
+                lastData = myReader.nextLine();
+                lastArray[e] = lastData;
+            }
+            myReader.close();
+            e = 0;
+        } 
+        catch (FileNotFoundException i) {
+            
+        System.out.println("An error occurred.");
+        i.printStackTrace();
+        }
+        try {
+            myReader = new Scanner(landName);
+            
+            while (myReader.hasNextLine()) {
+                e++;
+                landData = myReader.nextLine();
+                landArray[e] = landData;
+            }
+            myReader.close();
+            e = 0;
+        } 
+        catch (FileNotFoundException i) {
+            
+        System.out.println("An error occurred.");
+        i.printStackTrace();
+        }
+        
+        for (int x = 0; x < 20; x++) {
+            
+            Random rand = new Random();
+            
+            int firstRand = rand.nextInt(20) + 1;
+            int lastRand = rand.nextInt(20) + 1;
+            int landRand = rand.nextInt(20) + 1;
+            
+            System.out.println(firstArray[firstRand] + " " + lastArray[lastRand] + " of " + landArray[landRand]);
+            
+        } 
+    }
+}
