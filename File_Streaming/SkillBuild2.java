@@ -28,6 +28,7 @@ public class SkillBuild2 {
         String [] landArray = new String[21];
         int e = 0;
         Scanner myReader;
+        Random rand;
         
         try {
             myReader = new Scanner(firstName);
@@ -80,7 +81,7 @@ public class SkillBuild2 {
         
         for (int x = 0; x < 20; x++) {
             
-            Random rand = new Random();
+            rand = new Random();
             
             int firstRand = rand.nextInt(20) + 1;
             int lastRand = rand.nextInt(20) + 1;
@@ -89,5 +90,29 @@ public class SkillBuild2 {
             System.out.println(firstArray[firstRand] + " " + lastArray[lastRand] + " of " + landArray[landRand]);
             
         } 
+        /* extra special feature (1% chance with 25% chance to continue after happening)
+        (0.015625% chance to get them all)
+        */
+        rand = new Random();
+        int specialRand = rand.nextInt(100) + 1;
+        
+            if(specialRand == 1) {
+                System.out.println("Donald Trump of Beyond the Wall");
+                specialRand = rand.nextInt(100) + 1;
+                
+                if(specialRand <= 25) {
+                    System.out.println("Elon Musk of SpaceX");
+                    specialRand = rand.nextInt(100) + 1;
+                    
+                    if(specialRand <= 25) {
+                        System.out.println("Chris Pratt of the Mushroom Kingdom");
+                        specialRand = rand.nextInt(100) + 1;
+                        
+                        if(specialRand <= 25) {
+                            System.out.println("Paul Blart of Mall Cop");
+                        }
+                    }
+                }
+            }
     }
 }
