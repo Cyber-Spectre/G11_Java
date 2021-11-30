@@ -17,13 +17,14 @@ public class SkillBuild2 {
     
     public static void main(String[] args) {
         
-        File firstName = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\firstNames.txt");
+        String path = "C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\";
+        File firstName = new File(path + "firstNames.txt");
         String firstData = "";
         String [] firstArray = new String[21];
-        File lastName = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\lastName.txt");
+        File lastName = new File(path + "lastName.txt");
         String lastData = "";
         String [] lastArray = new String[21];
-        File landName = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\land.txt");
+        File landName = new File(path + "land.txt");
         String landData = "";
         String [] landArray = new String[21];
         int e = 0;

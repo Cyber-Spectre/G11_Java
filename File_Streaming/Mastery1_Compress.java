@@ -18,8 +18,9 @@ public class Mastery1_Compress {
     
     public static void main(String[] args) {
         
-        File data = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\data.txt");
-        File dataCompress = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\dataCompress.txt");
+        String path = "C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\";
+        File data = new File(path + "data.txt");
+        File dataCompress = new File(path + "dataCompress.txt");
         String dataStore1 = "";
         String dataStore2 = "";
         Scanner scan1;

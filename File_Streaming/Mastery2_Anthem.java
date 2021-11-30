@@ -18,8 +18,9 @@ import java.util.Random;
 public class Mastery2_Anthem {
     public static void main(String[] args) {
         
-        File anthem = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\Anthem.txt");
-        File abomination = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\Abomination.txt");
+        String path = "C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\";
+        File anthem = new File(path + "Anthem.txt");
+        File abomination = new File(path + "Abomination.txt");
         String [] arrayAnthem = new String [11];
         String [] arrayAbom = new String [11];
         String [] highscoreArray = new String [11];
@@ -27,18 +28,11 @@ public class Mastery2_Anthem {
         Scanner scan1;
         Random rand;
         
-        try {// checks if anthem.txt exists
-            if (anthem.createNewFile()) {
-              System.out.println("File created: " + anthem.getName());
-                } 
-            else {
-              System.out.println("File \"" + anthem.getName() + "\" already exists.");
-            }
-        }
-        catch(IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        if (!anthem.exists()) {
+            System.out.println("\"Anthem.txt\" does not exist.");
+            System.exit(0);
+        } 
+        
         
         try { // checks if abomination.txt exists
             if (abomination.createNewFile()) {
@@ -110,7 +104,7 @@ public class Mastery2_Anthem {
         
         String egg = "";
         try {   
-        FileWriter myWriter = new FileWriter("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\Abomination.txt");
+        FileWriter myWriter = new FileWriter(path + "Abomination.txt");
         for(int x = 0; x < highscoreArray.length; x++) {
             egg = (highscoreArray[x] + "\n");
             myWriter.write(egg);
