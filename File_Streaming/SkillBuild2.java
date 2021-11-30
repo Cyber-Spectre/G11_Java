@@ -31,6 +31,32 @@ public class SkillBuild2 {
         Scanner myReader;
         Random rand;
         
+        if (firstName.exists()) {
+            System.out.println("File \"firstNames.txt\" found.");
+        }
+        else {
+            System.out.println("File \"firstNames.txt\" does not exist, stopping program.");
+            System.exit(e);
+        }
+        
+        if (lastName.exists()) {
+            System.out.println("File \"lastName.txt\" found.");
+        }
+        else {
+            System.out.println("File \"lastName.txt\" does not exist, stopping program.");
+            System.exit(e);
+        }
+        
+        if (landName.exists()) {
+            System.out.println("File \"land.txt\" found.");
+        }
+        else {
+            System.out.println("File \"land.txt\" does not exist, stopping program.");
+            System.exit(e);
+        }
+        
+        System.out.println("\n");
+        
         try {
             myReader = new Scanner(firstName);
             

@@ -25,6 +25,14 @@ public class Mastery1_Compress {
         String dataStore2 = "";
         Scanner scan1;
         
+        if (data.exists()) {
+            System.out.println("File \"data.txt\" found.");
+        }
+        else {
+            System.out.println("File \"data.txt\" does not exist, stopping program.");
+            System.exit(0);
+        }
+        
         try {
         
             if (dataCompress.createNewFile()) {

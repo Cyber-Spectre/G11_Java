@@ -19,6 +19,14 @@ public class SkillBuild1 {
         File myFile = new File("C:\\Users\\105337005\\Documents\\NetBeansProjects\\G11_Java\\src\\main\\java\\File_Streaming\\data.txt");
         String data = "";
         
+        if (myFile.exists()) {
+            System.out.println("File \"data.txt\" found.");
+        }
+        else {
+            System.out.println("File \"data.txt\" does not exist, stopping program.");
+            System.exit(0);
+        }
+        
         try {
             Scanner myReader = new Scanner(myFile);
             
