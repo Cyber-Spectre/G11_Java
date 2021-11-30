@@ -19,7 +19,6 @@ public class Mastery1 {
         for (int x = 2; x < array.length; x++) {
             
             array[x] = x;
-            
         }
         
         for (int x = 2; x < array.length; x++) {
@@ -38,14 +37,11 @@ public class Mastery1 {
                 if (array[x] % y == 0) {
                     check = true;
                 }
-            
             }
             
             if(!check) {
                 System.out.println(array[x]);
             }
         }
-        
-    }
-    
+    } 
 }
