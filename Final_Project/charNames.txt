@@ -1,0 +1,23 @@
+Georgios|Greek
+Hamburger|German
+Hageman|Swedish
+Rodrìguez|Spanish
+Vasiliev|Russian
+Toussaint|French
+McLeish|Scottish
+Griffiths|Welsh
+Abbandonato|Italian
+Fitzpatrick|Irish
+Ferreira|Portuguese
+Wakabayashi|Japanese
+Chiang|Chinese
+Abimbola|African
+Sanders|American
+Chapman|British
+Hwang|Korean
+Gandhi|Indian
+Dimmadome|Fairly Odd Parents
+Karen|Walmart
+Ramsay|Hell
+Musk|SpaceX
+Zuckerberg|Meta
