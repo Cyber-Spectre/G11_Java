@@ -16,11 +16,12 @@ Sanders|America
 Chapman|England
 Hwang|Korea
 Gandhi|India
-Dimmadome|Dimmsdale Dimmadome
+Dimmadome(Doug)|Dimmsdale Dimmadome
 Karen|Walmart
-Ramsay|Hell
-Musk|SpaceX
-Zuckerberg|Meta
+Ramsay(Gordon)|Hell
+Musk(Elon)|SpaceX
+Zuckerberg(Mark)|Meta
 Chad|Chad
-Howard|Bethesda
+Howard(Todd)|Bethesda
 Thanos|Titan
+Bum(Derek)|Kitchen Gun

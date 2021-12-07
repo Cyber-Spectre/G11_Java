@@ -1,20 +1,20 @@
-Frying Pan|_
-Goose|_
-Paper Slicer|_
-Pistol|_
-Origami|_
-Kitchen Knife|_
-Machete|_
-Stick shaped like a gun|_
+Frying Pan|It looks like it's been used a fair amount._There is an odd red stain on the bottom side of it.
+Goose|Honk("I have nothing for you.")_Hjonk("You've got nothing on me.")
+Paper Slicer|I wonder how often this is actually used._The blade looks bent near the end, like it cut through something hard and brittle.
+Pistol|It's in good condition, it has no magazine in it._The magazine is missing one bullet.
+Origami|Looks like someone made an origami goose._Someone folded this paper into a knife shape.
+Kitchen Knife|A fine stainless knife, sharp as broken glass._The blade seems a little bent around the tip of the knife.
+Machete|Why is this in a mansion anyway? Nothing really seems off about it._It looks slightly tinted red.
+Stick shaped like a gun|Reminds me of playing in the woods as a kid._I have a weird feeling this isn't a stick.
 Snowglobe|_
-Glue|_
-Country Flag|_
+Glue|Glue._
+Country Flag|I can't seem to remember what country this flag is from._
 Keyboard|_
 Hammer|_
 Book of Jokes|_
 Comically Large Spoon|_
 Butter Knife|_
-Can of Chili|_
+Can of BEANS|Y'all got any baked beans?_
 Bonesaw|_
 Infinity Gauntlet(Thanos)|_
 Non-stick Pan(Ramsay)|_
@@ -24,3 +24,4 @@ Nuka-Cola(Howard)|_
 Dumbbells(Chad)|_
 Tall hat(Dimmadome)|_
 Login info(Zuckerberg)|_
+Kitchen Gun(Bum)|_

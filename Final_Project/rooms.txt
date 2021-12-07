@@ -1,22 +1,27 @@
-Pool
-Sauna
-Cinema
-Kitchen
-Study Room
-Fireplace
-Kitchen
-Roof
-Storage Room
-Laundry Room
-Master Bedroom
-Bathroom
-Guest Bedroom
-Lounge
-Power Room
-Basement
-Fountain Room
-Greenhouse
-Observatory
-Bar
-Garage
-Panic Room
+Pool|_
+Sauna|_
+Cinema|_
+Kitchen|_
+Study Room|_
+Fireplace|_
+Kitchen|_
+Roof|_
+Storage Room|_
+Laundry Room|_
+Master Bedroom|_
+Bathroom|_
+Guest Bedroom|_
+Lounge|_
+Power Room|_
+Basement|_
+Fountain Room|_
+Greenhouse|_
+Observatory|_
+Bar|_
+Garage|_
+Panic Room|_
+Vault|_
+Closet|_
+Boiler Room|_
+Security Room|_
+Dining Room|_
