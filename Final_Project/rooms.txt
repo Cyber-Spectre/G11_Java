@@ -1,9 +1,9 @@
-Pool|_
-Sauna|_
-Cinema|_
-Kitchen|_
-Study Room|_
-Fireplace|_
+Pool|Who needs a private Olympic size swimming pool?_Red coloured water is an odd aesthetic.
+Sauna|It's nice and steamy in here, too bad I can't stop to relax._There's a weird rust smell mixed with the mist.
+Cinema|I have a feeling this isn't used enough for what it would have cost to have in your house. There's a superhero movie playing right now._There's a red stain on the screen and what looks like a murder mystery movie playing.
+Kitchen|There are more spices in the spice rack than I knew existed, let alone thought existed._They really need to learn to clean up after themselves, they left strawberry jam all over the counters!
+Study Room|There's so many sheets of paper in here on subjects you've never heard of, and a dictionary worth of physics and chemistry equations._Looks like this room was last used for creative art studies, there's red paint all over the room.
+Fireplace|You remember that one time you lit the fireplace on Christmas Eve when you were 5 because you wanted to kill santa to steal all the presents, it didn't work._The fire doesn't smell like it's burning firewood.
 Kitchen|_
 Roof|_
 Storage Room|_
@@ -17,11 +17,11 @@ Basement|_
 Fountain Room|_
 Greenhouse|_
 Observatory|_
-Bar|_
+Bar|There is enough alcohol in this bar to get you a free ticket to the hospital for liver damage._There's a broken whiskey bottle on the ground, but it looks like a red wine stain around it.
 Garage|_
 Panic Room|_
 Vault|_
-Closet|_
+Closet|Even the closet is bigger than my entire house._There's some blankets in the corner, and what looks like a red wine stain.
 Boiler Room|_
 Security Room|_
 Dining Room|_
