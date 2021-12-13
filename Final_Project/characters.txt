@@ -1,7 +1,7 @@
 Georgios|Greece
 Hamburger|Germany
 Hageman|Switzerland
-Rodrìguez|Spain
+Rodriguez|Spain
 Vasiliev|Russia
 Toussaint|France
 McLeish|Scotland

@@ -28,22 +28,30 @@ public class glueMisc {
         File weapons = new File(path + "weapons.txt");
         File rooms = new File(path + "rooms.txt");
         
-        String [] arrChars = new String[5];
-        boolean [] charCheck = new boolean[26];
-        for (int x = 0; x < 26; x++) {
-            charCheck[x] = false;
+        String [] charHold = new String[27];//setup variables
+        String [] weapHold = new String[27];
+        String [] roomHold = new String[27];
+        
+        int charID;//identifiers for guilty
+        int weapID;
+        int roomID;
+        
+        String [] arrChars = new String[6];//character variables
+        int [] charCheck = new int[27];//0 = false, 1 = true, 2 = special true
+        for (int x = 0; x < arrChars.length; x++) {
+            charCheck[x] = 0;
         }
-        String [] arrWeap = new String[5];
-        boolean [] weapCheck = new boolean[26];
-        for (int x = 0; x < 26; x++) {
+        String [] arrWeap = new String[6];//weapon variables
+        boolean [] weapCheck = new boolean[27];
+        for (int x = 0; x < arrWeap.length; x++) {
             weapCheck[x] = false;
         }
-        String [] arrRooms = new String[8];
-        boolean [] roomCheck = new boolean[26];
-        for (int x = 0; x < 26; x++) {
+        String [] arrRooms = new String[9];//room variables
+        boolean [] roomCheck = new boolean[27];
+        for (int x = 0; x < arrRooms.length; x++) {
             roomCheck[x] = false;
         }
-        
+        //check if files exist
         if (chars.exists()) {
             System.out.println("File \"characters.txt\" found.");
         } 
@@ -66,34 +74,126 @@ public class glueMisc {
             System.exit(0);
         }
         System.out.println("All files found, setting up game.");
-        
+        //set object holders
         try {
             scan1 = new Scanner(chars);
-            String [] charHold = new String[26];
+            for (int x = 0; x < charHold.length;) {
+                while(scan1.hasNextLine()) {
+                    charHold[x] = scan1.nextLine();
+                    x++;
+                }
+            }
         }
-        catch (FileNotFoundException i) {
+        catch (FileNotFoundException e){
             System.out.println("An error occurred.");
-            i.printStackTrace();
+            e.printStackTrace();
         }
         
-        for (int x = 0; x < 5; x++) {
-
-            rand = new Random();
-
-            int charRand = rand.nextInt(26) + 1;
-
-            if (charCheck[x]) {
+        try {
+            scan1 = new Scanner(weapons);
+            for (int x = 0; x < weapHold.length;) {
+                while(scan1.hasNextLine()) {
+                    weapHold[x] = scan1.nextLine();
+                    x++;
+                }
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        
+        try {
+            scan1 = new Scanner(rooms);
+            for (int x = 0; x < roomHold.length;) {
+                while(scan1.hasNextLine()) {
+                    roomHold[x] = scan1.nextLine();
+                    x++;
+                }
+            }
+        }
+        catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace(); 
+        }
+        
+        rand = new Random();
+        
+        for (int x = 0; x < 6; x++) {//set characters
+            
+            int charRand = rand.nextInt(27);
+            if (charCheck[charRand] == 1 || charCheck[charRand] == 2) {
                 x--;
             }
             else {
                 if (charRand > 18) {
                     int specRand = rand.nextInt(99) + 1;
                     if (specRand < 20) {
-                        
+                        arrChars[x] = charHold[charRand];
+                        charCheck[charRand] = 2;
+                    }
+                    else {
+                        x--;
                     }
                 }
-            }
-            
+                else {
+                    arrChars[x] = charHold[charRand];
+                    charCheck[charRand] = 1;
+                }
+            } 
         }
+        charID = rand.nextInt(5) + 1;
+        
+        for (int x = 0; x < 6; x++) {//set weapons
+            
+            int weapRand = rand.nextInt(19);
+            if (weapCheck[weapRand]) {
+                x--;
+            }
+            else {
+                arrWeap[x] = weapHold[weapRand];
+                weapCheck[weapRand] = true;
+            }
+        }
+        
+        int weapShuf;
+        for (int x = 18; x < charCheck.length; x++) {
+            if(charCheck[x] == 2) {
+                weapShuf = rand.nextInt(6);
+                arrWeap[weapShuf] = weapHold[x];
+                weapCheck[x] = true;
+            }
+        }
+        weapID = rand.nextInt(5) + 1;
+        
+        for (int x = 0; x < 9; x++) {//set rooms
+            
+            int roomRand = rand.nextInt(27);
+            if (roomCheck[roomRand]) {
+                x--;
+            }
+            else {
+                arrRooms[x] = roomHold[roomRand];
+                roomCheck[roomRand] = true;
+            }
+        }
+     roomID = rand.nextInt(8) + 1;
+     
+        System.out.println("Everything is set up! Starting");
+        
+        for (int x = 0; x < arrChars.length; x++) {
+            System.out.println(arrChars[x]);
+        }
+        System.out.println("\n" + charID + "\n" + arrChars[charID - 1] + "\n");
+        
+        for (int x = 0; x < arrWeap.length; x++) {
+            System.out.println(arrWeap[x]);
+        }
+        System.out.println("\n" + weapID + "\n" + arrWeap[weapID - 1] + "\n");
+        
+        for (int x = 0; x < arrRooms.length; x++) {
+            System.out.println(arrRooms[x]);
+        }
+        System.out.println("\n" + roomID + "\n" + arrRooms[roomID - 1] + "\n");
     }
 }
