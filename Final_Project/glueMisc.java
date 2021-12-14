@@ -41,9 +41,9 @@ public class glueMisc {
         for (int x = 0; x < arrChars.length; x++) {
             charCheck[x] = 0;
         }
-        String [] arrWeap = new String[6];//weapon variables
+        String [] arrWeaps = new String[6];//weapon variables
         boolean [] weapCheck = new boolean[27];
-        for (int x = 0; x < arrWeap.length; x++) {
+        for (int x = 0; x < arrWeaps.length; x++) {
             weapCheck[x] = false;
         }
         String [] arrRooms = new String[9];//room variables
@@ -73,7 +73,7 @@ public class glueMisc {
             System.out.println("\"rooms.txt\" does not exist, stopping program.");
             System.exit(0);
         }
-        System.out.println("All files found, setting up game.");
+        System.out.println("All files found, setting up game. \n");
         //set object holders
         try {
             scan1 = new Scanner(chars);
@@ -126,9 +126,9 @@ public class glueMisc {
                 x--;
             }
             else {
-                if (charRand > 18) {
+                if (charRand >= 18) {
                     int specRand = rand.nextInt(99) + 1;
-                    if (specRand < 20) {
+                    if (specRand <= 10) {
                         arrChars[x] = charHold[charRand];
                         charCheck[charRand] = 2;
                     }
@@ -143,6 +143,7 @@ public class glueMisc {
             } 
         }
         charID = rand.nextInt(5) + 1;
+        System.out.println("Characters set.");
         
         for (int x = 0; x < 6; x++) {//set weapons
             
@@ -151,20 +152,31 @@ public class glueMisc {
                 x--;
             }
             else {
-                arrWeap[x] = weapHold[weapRand];
+                arrWeaps[x] = weapHold[weapRand];
                 weapCheck[weapRand] = true;
             }
         }
         
         int weapShuf;
-        for (int x = 18; x < charCheck.length; x++) {
+        boolean [] weapShufHold = new boolean[6];
+        for (int x = 0; x < 6; x++) {
+            weapShufHold[x] = false;
+        }
+        for (int x = 17; x < charCheck.length; x++) {
             if(charCheck[x] == 2) {
-                weapShuf = rand.nextInt(6);
-                arrWeap[weapShuf] = weapHold[x];
-                weapCheck[x] = true;
+                boolean whileSet = false;
+                while(!whileSet) {
+                    weapShuf = rand.nextInt(6);
+                    if (!weapShufHold[weapShuf]) {
+                        arrWeaps[weapShuf] = weapHold[x];
+                        whileSet = true;
+                        weapShufHold[weapShuf] = true;
+                    }
+                }
             }
         }
         weapID = rand.nextInt(5) + 1;
+        System.out.println("Weapons set.");
         
         for (int x = 0; x < 9; x++) {//set rooms
             
@@ -178,22 +190,11 @@ public class glueMisc {
             }
         }
      roomID = rand.nextInt(8) + 1;
+        System.out.println("Rooms set. \n");
      
-        System.out.println("Everything is set up! Starting");
+        System.out.println("Everything is set up! Starting...");
         
-        for (int x = 0; x < arrChars.length; x++) {
-            System.out.println(arrChars[x]);
-        }
-        System.out.println("\n" + charID + "\n" + arrChars[charID - 1] + "\n");
-        
-        for (int x = 0; x < arrWeap.length; x++) {
-            System.out.println(arrWeap[x]);
-        }
-        System.out.println("\n" + weapID + "\n" + arrWeap[weapID - 1] + "\n");
-        
-        for (int x = 0; x < arrRooms.length; x++) {
-            System.out.println(arrRooms[x]);
-        }
-        System.out.println("\n" + roomID + "\n" + arrRooms[roomID - 1] + "\n");
+        glue setup = new glue(arrChars, charID, arrWeaps, weapID, arrRooms, roomID);
+        glue.Setup();
     }
 }
