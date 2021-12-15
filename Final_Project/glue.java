@@ -8,7 +8,7 @@ package Final_Project;
 import java.util.Random;
 import java.util.Scanner;
 import java.awt.Desktop; 
-import java.io.*;  
+import java.io.*;
 /**
  *
  * @author 105337005
@@ -76,24 +76,29 @@ public class glue {
     
     public static void Startup() {
         String [] charNames = new String[6];
-        char holder;
         
         for (int x = 0; x < 6; x++) {
+            charNames[x] = "";
             boolean whilePrint = true;
             scan1 = new Scanner(arrChars[x]);
-            holder = null;
-            for (int y = 0; y < arrChars.length; y++) {
-                while (whilePrint) {
-                    if(arrChars[x].charAt(y) == '|')
-                    holder = arrChars[x].charAt(y);
-                    charNames[x] = charNames[x] + holder;
+            for (int y = 0; whilePrint; y++) {
+                if(arrChars[x].charAt(y) != '|') {
+                    charNames[x] = charNames[x] + arrChars[x].charAt(y);   
+                }
+                else {
+                    whilePrint = false;
                 }
             }
-            
         }
         System.out.println("\n"
             + "-----------------------------------------------------------------\n"
-            + "There are six suspects, these suspects are as follows:");
+            + "There are six suspects, these suspects are as follows: \n"
+                + charNames[0] + "\n"
+                + charNames[1] + "\n"
+                + charNames[2] + "\n"
+                + charNames[3] + "\n"
+                + charNames[4] + "\n"
+                + charNames[5] + "\n");
     }
     
     public static void Quit() {
