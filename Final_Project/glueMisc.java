@@ -127,8 +127,8 @@ public class glueMisc {
             }
             else {
                 if (charRand >= 18) {
-                    int specRand = rand.nextInt(99) + 1;
-                    if (specRand <= 10) {
+                    int specRand = rand.nextInt(100) + 1;
+                    if (specRand <= 20) {
                         arrChars[x] = charHold[charRand];
                         charCheck[charRand] = 2;
                     }
