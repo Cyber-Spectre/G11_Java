@@ -145,7 +145,7 @@ public class glue {
             + charNames[4] + "\n"
             + charNames[5] + "\n"
             + "-----------------------------------------------------------------\n");
-        System.out.println("There are nine rooms of interest, you must investigate them for clues"
+        System.out.println("There are nine rooms of interest, you must investigate them for clues\n"
             + "The rooms are as follows: \n"
             + roomNames[0] + "\n"
             + roomNames[1] + "\n"
@@ -173,12 +173,12 @@ public class glue {
             if (input == 1) {
                 isReady = true;
                 turn = 1;
-                Play();
+                RoundStart();
             }
         }
     }
     
-    public static void Play() {
+    public static void RoundStart() {
         
         System.out.println("-----------------------------------------------------------------\n"
             + "Turn " + turn + " of " + turns + "\n"
@@ -188,20 +188,90 @@ public class glue {
         
         while (!isReady) {
             scan1 = new Scanner(System.in);
-            int input = scan1.nextInt();
-            if (input > 0 && input < 11) {
-                for (int x = 0; x < input; x++) {
-                    dice = rand.nextInt(6) + 1;
+            String input = scan1.nextLine();
+            try {
+                if (Integer.valueOf(input) > 0 && Integer.valueOf(input) < 11) {
+                    for (int x = 0; x < Integer.valueOf(input); x++) {
+                        dice = rand.nextInt(6) + 1;
+                    }
+                    isReady = true;
                 }
-                isReady = true;
+                else {
+                    System.out.println("Number out of range");
+                }
             }
-            else {
-                System.out.println("Invalid input");
+            catch (Exception e) {
+                System.out.println("Input a number");
             }
         }
         
         System.out.println("You rolled a " + dice);
         
+        System.out.println("-----------------------------------------------------------------\n"
+            + "Please select an action:\n"
+            + "1) Search a room\n"
+            + "2) Question suspect\n"
+            + "3) C H E E S E\n"
+            + "4) Guess killer\n");
+        
+        scan1 = new Scanner(System.in);
+        int input = scan1.nextInt();
+        
+        switch(input) {
+            case 1:
+                
+                break;
+            case 2:
+                
+                break;
+            case 3:
+                dice--;
+                Cheese();
+                
+                break;
+            case 4:
+                
+                break;
+        }
+    }
+    
+    public static void Cheese() {
+        
+        System.out.println("-----------------------------------------------------------------\n"
+            + dice + " moves left\n"
+            + "\n"
+            + "You pull a piece of cheese out of your pocket\n"
+            + "Eating the cheese can have the following effects:\n"
+            + "70% chance of nothing happening and a move being wasted\n"
+            + "20% chance to gain 3+ moves\n"
+            + "8% chance to gain 2+ turns\n"
+            + "2% chance of it being blue cheese and you dying (lose the game instantly)\n"
+            + "\n"
+            + "Do you eat the cheese?\n"
+                    + "1) yes\n"
+                    + "2) no\n");
+        
+        scan1 = new Scanner(System.in);
+        int input = scan1.nextInt();
+        
+        if (input == 1) {
+            int chance = rand.nextInt(100) + 1;
+            if (chance <= 70) {
+                System.out.println("Nothing happened.");
+            }
+            else if (chance <= 90) {
+                System.out.println("The cheese gave you more moves!");
+                dice = dice + 3;
+            }
+            else if (chance <= 98) {
+                System.out.println("The cheese gave you more turns!!");
+                turns = turns + 2;
+            }
+            else  {
+                System.out.println("It was blue cheese, you died!!!");
+                System.exit(0);
+            }
+        }
     }
     
     public static void Quit() {

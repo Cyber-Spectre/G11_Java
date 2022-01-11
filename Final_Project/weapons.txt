@@ -5,7 +5,7 @@ Pistol|It's in good condition, it has no magazine in it.~It is loaded with a mag
 Origami|Looks like someone made an origami goose.~Someone folded this paper into a knife shape.
 Kitchen Knife|A fine stainless knife, sharp as broken glass.~The blade seems a little bent around the tip of the knife.
 Machete|Why is this in a mansion anyway? Nothing really seems off about it.~It looks slightly tinted red.
-Stick shaped like a gun|Reminds me of playing in the woods as a kid.~I have a weird feeling this isn't a stick.
+Stick|Reminds me of playing in the woods as a kid.~Looks like a giant sword, could hurt pretty bad to get hit with.
 Snowglobe|There's a happy little snowman inside. You decide to shake it vigorously to make him dizzy, you monster!~Someone smashed it and the snowman is missing, who would do such a thing?
 Glue|You have a feeling this is here for a reason, unfortunately figuring out why would require a fourth wall break.~Imagine if the item the game is named after was the murder weapon, that would be so funny! By the way there's blood on it.
 Country Flag|If only I was good at Geography, I can't remember what country this is the flag of.~This flag is bent along the pole like it was used bluntly, I can't seem to remember what country this flag is from.
@@ -16,12 +16,12 @@ Comically Large Spoon|A comically large spoon is by definition not a spoon, as t
 Banana|Potassium power!~At what stage of ripeness is a banana peel red?
 Can of BEANS|"You have become addicted to Pork N' Beans."~A half empty can of beans, it smells like there's something mixed in.
 Laser Pointer|Is it even worth assuming this could be used as a weapon, maybe against cats?~You point the laser pointer at a wooden chair, the chair starts to burn, maybe this does have lethal potential?
-Infinity Gauntlet(Thanos)|You pick it up, the weight distribution is perfectly balanced, as all things should be.~You feel a sense of unbalance when you touch this, something's not right.
+Login info(Zuckerberg)|Username:InnocentIguana528, Password:Password~Username:GuiltyGecko873, Password:abc123
 Non-stick Pan(Ramsay)|How come my non-stick pans don't work like this one?~How did they manage to make strawberry jam stick to a non-stick pan?
 Expired Coupons(Karen)|Why would someone keep coupons that expired three years ago?~The edges of some of the coupons are stained red, also they're three years expired and you are mad about it.
 Cybertruck(Musk)|The truck looks like the graphics settings are on low.~There's an obvious dent on the bumper of the truck because it's the only part of the truck that isn't low-poly.
 Nuka-Cola(Howard)|Something about a soft drink based off a nuclear weapon both amuses and worries you.~It's half empty and it looks like it actually is radioactive.
 Dumbbells(Chad)|Someone put some tape on them with one zero written on to make it look like 250kg.~These are legitimately 250kg, whoever can lift these can probably kill someone by patting them on the back.
-Tall hat(Dimmadome)|A very tall white cowboy hat, it's very intimidating~The top of the hat looks like it was... sharpened?
-Login info(Zuckerberg)|Username:InnocentIguana528, Password:Password~Username:GuiltyGecko873, Password:abc123
+Tall hat(Dimmadome)|A very tall white cowboy hat, how do you keep your balance with this?~This hat is intimidatingly tall, and looks sharp at the top.
+Infinity Gauntlet(Thanos)|You pick it up, the weight distribution is perfectly balanced, as all things should be.~You feel a sense of unbalance when you touch this, something's not right.
 Kitchen Gun(Bum)|Just three shots from Kitchen Gun (BANG BANG BANG) and it sparkles like new!~There's smoke coming out of the barrel, but you can't see anything that was cleaned using it. There's also four bullets missing instead of three, someone can't count.
