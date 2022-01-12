@@ -38,8 +38,16 @@ public class glue {
     public static int turn;
     public static int turns = 20;
     public static int dice;
+    public static boolean d4;
+    
+    public static int chance;
+    
+    public static int inputInt;
+    public static String inputStr;
+    
     
     public static boolean whilePrint;
+    public static boolean whileChoice;
     public static boolean isReady = false;
     
     public glue(String[] arrChars, int charID, String[] arrWeaps, int weapID, String[] arrRooms, int roomID) {
@@ -75,9 +83,9 @@ public class glue {
             + "2) Quit Game \n");
         
         scan1 = new Scanner(System.in);
-        int input = scan1.nextInt();
+        inputInt = scan1.nextInt();
         
-        switch(input) {
+        switch(inputInt) {
             case 1:
                 Startup();
             break;
@@ -157,9 +165,12 @@ public class glue {
             + roomNames[7] + "\n"
             + roomNames[8] + "\n"
             + "-----------------------------------------------------------------\n");
-        System.out.println("You will have " + turns + " turns\n"
+        System.out.println("Please read the following so you know what you're doing\n"
+            + "\n"
+            + "You will have " + turns + " turns\n"
             + "Each turn you will roll a dice which decides your moves\n"
-            + "Each action costs one move"
+            + "Actions starting with a + don't use a move\n"
+            + "Actions starting with a - cost one move\n"
             + "When you run out of moves, you are forced to return to the main room\n"
             + "When you run out of turns, you are given a final guess\n"
             + "If you get that guess wrong, you lose\n"
@@ -169,8 +180,8 @@ public class glue {
         
         while (!isReady) {
             scan1 = new Scanner(System.in);
-            int input = scan1.nextInt();
-            if (input == 1) {
+            inputInt = scan1.nextInt();
+            if (inputInt == 1) {
                 isReady = true;
                 turn = 1;
                 RoundStart();
@@ -209,30 +220,59 @@ public class glue {
         
         System.out.println("-----------------------------------------------------------------\n"
             + "Please select an action:\n"
-            + "1) Search a room\n"
-            + "2) Question suspect\n"
-            + "3) C H E E S E\n"
-            + "4) Guess killer\n");
+            + "1) +Search a room \n"
+            + "2) +Question suspect\n"
+            + "3) +C H E E S E\n"
+            + "4) +Guess killer\n");
+        
+        if (dice == 1) {
+            System.out.println("5) +Lucky roll\n");
+        }
         
         scan1 = new Scanner(System.in);
-        int input = scan1.nextInt();
+        inputInt = scan1.nextInt();
         
-        switch(input) {
-            case 1:
-                
-                break;
-            case 2:
-                
-                break;
-            case 3:
-                dice--;
-                Cheese();
-                
-                break;
-            case 4:
-                
-                break;
+        whileChoice = false;
+        
+        while (!whileChoice) {
+            try {
+                switch(inputInt) {
+                    case 1:
+                        
+
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+                        whileChoice = true;
+                        Cheese();
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+                        if (dice == 1) {
+                            whileChoice = true;
+                            LuckyRoll();
+                        }
+                        else {
+                        break;
+                        }
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Invalid input");
+            }
         }
+    }
+    
+    public static void RoundMain() {
+        
+    }
+    
+    public static void Rooms() {
+        
     }
     
     public static void Cheese() {
@@ -243,19 +283,20 @@ public class glue {
             + "You pull a piece of cheese out of your pocket\n"
             + "Eating the cheese can have the following effects:\n"
             + "70% chance of nothing happening and a move being wasted\n"
-            + "20% chance to gain 3+ moves\n"
-            + "8% chance to gain 2+ turns\n"
-            + "2% chance of it being blue cheese and you dying (lose the game instantly)\n"
+            + "20% chance to gain 3+ moves (2+ since you use one)\n"
+            + "5% chance to gain 2+ turns\n"
+            + "5% chance of it being blue cheese and you dying (lose the game instantly)\n"
             + "\n"
             + "Do you eat the cheese?\n"
-                    + "1) yes\n"
-                    + "2) no\n");
+                    + "1) -Yes\n"
+                    + "2) +No\n");
         
         scan1 = new Scanner(System.in);
-        int input = scan1.nextInt();
+        inputInt = scan1.nextInt();
         
-        if (input == 1) {
-            int chance = rand.nextInt(100) + 1;
+        if (inputInt == 1) {
+            dice--;
+            chance = rand.nextInt(100) + 1;
             if (chance <= 70) {
                 System.out.println("Nothing happened.");
             }
@@ -263,13 +304,128 @@ public class glue {
                 System.out.println("The cheese gave you more moves!");
                 dice = dice + 3;
             }
-            else if (chance <= 98) {
+            else if (chance <= 95) {
                 System.out.println("The cheese gave you more turns!!");
                 turns = turns + 2;
             }
             else  {
                 System.out.println("It was blue cheese, you died!!!");
                 System.exit(0);
+            }
+        }
+        else if (inputInt == 2) {
+            RoundMain();
+        }
+    }
+    
+    public static void LuckyRoll() {
+        
+        System.out.println("=================================================================\n"
+            + "Welcome to Lucky Roll!\n"
+            + "\n"
+            + "Lucky Roll gives you a chance to get more moves if you rolled a 1\n"
+            + "You will have to make two 50/50 guesses\n"
+            + "Getting one of them right lets you reroll (1-6)\n"
+            + "Getting both of them right lets you roll two dice (2-12)\n"
+            + "But, if you get both of them wrong, You lose 3 turns, and only get to roll a d4 next turn (1-4)\n"
+            + "Alternatively, you can take your chance with cheese\n"
+            + "Do you want to play Lucky Roll?\n"
+            + "1) -Yes\n"
+            + "2) +No\n");
+        
+        scan1 = new Scanner(System.in);
+        inputInt = scan1.nextInt();
+        
+        whileChoice = false;
+        
+        while (!whileChoice) {
+            try {
+                switch(inputInt) {
+                    case 1:
+                        dice--;
+                        int lucky1 = rand.nextInt(2) + 1;
+                        String lucky2;
+                        int luckyG1 = 0;
+                        String luckyG2 = "";
+                        
+                        chance = rand.nextInt(2);
+                        
+                        if (chance == 0) {
+                            lucky2 = "A";
+                        }
+                        else {
+                            lucky2 = "B";
+                        }
+                        
+                        whileChoice = false;
+                        System.out.println("Choose either 1 or 2:");
+                        while (!whileChoice) {
+                            scan1 = new Scanner(System.in);
+                            inputInt = scan1.nextInt();
+                            
+                            try {
+                                if (inputInt == 1 || inputInt == 2) {
+                                    whileChoice = true;
+                                    luckyG1 = inputInt;
+                                }
+                                else {
+                                    System.out.println("Invalid input");
+                                }
+                            }
+                            catch (Exception e) {
+                                System.out.println("Invalid input");
+                            }
+                        }
+                        
+                        whileChoice = false;
+                        System.out.println("Choose either A or B:");
+                        while (!whileChoice) {
+                            scan1 = new Scanner(System.in);
+                            inputStr = scan1.nextLine();
+                            
+                            if (inputStr == "A" || inputStr == "a") {
+                                whileChoice = true;
+                                luckyG2 = "A";
+                            }
+                            else if (inputStr == "B" || inputStr == "b") {
+                                whileChoice = true;
+                                luckyG2 = "B";
+                            }
+                            else {
+                                System.out.println("Invalid input");
+                            }
+                        }
+                        
+                        int luckyScore = 0;
+                        
+                        if (lucky1 == luckyG1) {
+                            luckyScore++;
+                        }
+                        if (lucky2 == luckyG2) {
+                            luckyScore++;
+                        }
+                        
+                        if (luckyScore == 2) {
+                            
+                        }
+                        else if (luckyScore == 1) {
+                            
+                        }
+                        else {
+                            System.out.println("You got neither right! Better luck next time");
+                            turns = turns - 2;
+                            d4 = true;
+                            
+                        }
+                        
+                        break;
+                    case 2:
+                        
+                        break;
+                }
+            }
+            catch (Exception e) {
+                System.out.println("Invalid input");
             }
         }
     }
