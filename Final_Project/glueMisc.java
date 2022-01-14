@@ -141,7 +141,7 @@ public class glueMisc {
                 }
             } 
         }
-        charID = rand.nextInt(5) + 1;
+        charID = rand.nextInt(6);
         System.out.println("Characters set.");
         
         for (int x = 0; x < 6; x++) {//set weapons
@@ -174,7 +174,7 @@ public class glueMisc {
                 }
             }
         }
-        weapID = rand.nextInt(5) + 1;
+        weapID = rand.nextInt(6);
         System.out.println("Weapons set.");
         
         for (int x = 0; x < 9; x++) {//set rooms
@@ -188,7 +188,7 @@ public class glueMisc {
                 roomCheck[roomRand] = true;
             }
         }
-     roomID = rand.nextInt(8) + 1;
+     roomID = rand.nextInt(9);
         System.out.println("Rooms set. \n");
      
         System.out.println("Everything is set up! Starting...");

@@ -38,7 +38,7 @@ public class glue {
     
     public static boolean [] roomSearched = new boolean[9];
     public static String [] roomSearchedStr = new String[9];
-    public static boolean [] weapSearched = new boolean[6];
+    public static boolean [] weapSearched = new boolean[9];
     
     public static int turn;
     public static int turns = 20;
@@ -103,7 +103,9 @@ public class glue {
         for (int x = 0; x < 9; x++) {
             locCheck[x] = false;
             roomSearched[x] = false;
+            roomSearchedStr[x] = " [NOT SEARCHED]";
             weapSearched[x] = false;
+            weapLoc[x] = -1;
         }
         
         for (int x = 0; x < 6; x++) { //sets character name displays
@@ -273,8 +275,11 @@ public class glue {
             + "4) +Guess killer");
         
         if (dice == 1) {
-            System.out.println("5) +Lucky roll\n");
+            System.out.println("5) +Lucky roll");
         }
+        
+        System.out.println("\n"
+            + "0) Leave game");
         
         scan1 = new Scanner(System.in);
         input = scan1.nextInt();
@@ -322,7 +327,8 @@ public class glue {
             + "1) +Search a room\n"
             + "2) +Question suspect\n"
             + "3) +C H E E S E\n"
-            + "4) +Guess killer");
+            + "4) +Guess killer\n"
+            + "0) Leave game\n");
         
         scan1 = new Scanner(System.in);
         input = scan1.nextInt();
@@ -405,61 +411,144 @@ public class glue {
     
     public static void SearchStart() {
         System.out.println("What room would you like to search?\n"
-            + "1) -" + roomNames[0] + "\n"
-            + "2) -" + roomNames[1] + "\n"
-            + "3) -" + roomNames[2] + "\n"
-            + "4) -" + roomNames[3] + "\n"
-            + "5) -" + roomNames[4] + "\n"
-            + "6) -" + roomNames[5] + "\n"
-            + "7) -" + roomNames[6] + "\n"
-            + "8) -" + roomNames[7] + "\n"
-            + "9) -" + roomNames[8] + "\n");
+            + "1) -" + roomNames[0] + roomSearchedStr[0] + "\n"
+            + "2) -" + roomNames[1] + roomSearchedStr[1] + "\n"
+            + "3) -" + roomNames[2] + roomSearchedStr[2] + "\n"
+            + "4) -" + roomNames[3] + roomSearchedStr[3] + "\n"
+            + "5) -" + roomNames[4] + roomSearchedStr[4] + "\n"
+            + "6) -" + roomNames[5] + roomSearchedStr[5] + "\n"
+            + "7) -" + roomNames[6] + roomSearchedStr[6] + "\n"
+            + "8) -" + roomNames[7] + roomSearchedStr[7] + "\n"
+            + "9) -" + roomNames[8] + roomSearchedStr[8] + "\n"
+            + "0) +Back to main options");
         
         scan1 = new Scanner(System.in);
         input = scan1.nextInt();
         
         switch(input) {
             case 1:
+                dice--;
                 SearchRoom(0);
                 break;
             case 2:
+                dice--;
                 SearchRoom(1);
                 break;
             case 3:
+                dice--;
                 SearchRoom(2);
                 break;
             case 4:
+                dice--;
                 SearchRoom(3);
                 break;
             case 5:
+                dice--;
                 SearchRoom(4);
                 break;
             case 6:
+                dice--;
                 SearchRoom(5);
                 break;
             case 7:
+                dice--;
                 SearchRoom(6);
                 break;
             case 8:
+                dice--;
                 SearchRoom(7);
                 break;
             case 9:
+                dice--;
                 SearchRoom(8);
                 break;
+            case 0:
+                RoundMain();
         }
     }
     
-    public static void SearchRoom(int input) {
+    public static void SearchRoom(int input2) {
         
-        roomSearched[input] = true;
+        roomSearched[input2] = true;
+        roomSearchedStr[input2] = " [SEARCHED]";
         
         System.out.println("-----------------------------------------------------------------\n"
-            + "Room " + roomNames[input] + "\n"
-            + "\n"
+            + "Room " + roomNames[input2]);
+        
+        if(!weapSearched[input2]) {
+            System.out.println("No weapon discovered in this room yet");
+        }
+        else {
+            if (weapLoc[input2] == -1) {
+                System.out.println("No weapon in this room");
+            }
+            else {
+                System.out.println(weapNames[weapLoc[input2]] + " is in this room");
+            }
+        }
+        
+        System.out.println("\n"
             + "What do you want to do in this room?\n"
-            + "0) -Exit room\n"
-                    + "1)Inspect room\n"
-                    + "");
+            + "1) -Inspect room");
+        
+        if(!weapSearched[input2]) {
+            System.out.println("2) -Search for weapon");
+        }
+        else {
+            System.out.println("2) -Inspect weapon");
+        }
+        
+        System.out.println("3) -Leave room");
+        
+        scan1 = new Scanner(System.in);
+        input = scan1.nextInt();
+        
+        whileChoice = false;
+        
+        while (!whileChoice) {
+            switch(input) {
+                case 1:
+                    dice--;
+                    InspectRoom(input2);
+                    break;
+                case 2:
+                    dice--;
+                    InspectWeap(input2);
+                    break;
+                case 3:
+                    dice--;
+                    SearchStart();
+                    break;
+            }
+        }
+    }
+    
+    public static void InspectRoom(int input2) {
+        
+    }
+    
+    public static void InspectWeap(int input2) {
+        if (!weapSearched[input2]) {
+            if (weapLoc[input2] == -1) {
+                System.out.println("There is no weapon in this room");
+                weapSearched[input2] = true;
+                SearchRoom(input2);
+
+            }
+            else {
+                System.out.println("You found " + weapNames[weapLoc[input2]] + " in this room");
+                weapSearched[input2] = true;
+                SearchRoom(input2);
+            }
+        }
+        else {
+            if (weapLoc[input2] == weapID) {
+                for (int x = 0; x < arrWeap[weapLoc[input2]]. )
+            }
+            else {
+                
+            }
+        }
     }
     
     public static void LuckyRoll() {
@@ -569,6 +658,7 @@ public class glue {
                                 catch (Exception e) {
                                     System.out.println("Input a number");
                                 }
+                                RoundMain();
                             }
                         }
                         else if (luckyScore == 1) {
@@ -594,6 +684,7 @@ public class glue {
                                 catch (Exception e) {
                                     System.out.println("Input a number");
                                 }
+                                RoundMain();
                             }
                         }
                         else {
@@ -605,7 +696,7 @@ public class glue {
                         
                         break;
                     case 2:
-                        
+                        RoundMain();
                         break;
                 }
             }
