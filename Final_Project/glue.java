@@ -24,6 +24,8 @@ public class glue {
     public static String[] arrWeaps;
     public static String[] arrRooms;
     
+    public static String holder;
+    
     public static int charID;
     public static int weapID;
     public static int roomID;
@@ -494,6 +496,9 @@ public class glue {
         if(!weapSearched[input2]) {
             System.out.println("2) -Search for weapon");
         }
+        else if (weapLoc[input2] == -1) {
+            System.out.println("2) No weapon in this room");
+        }
         else {
             System.out.println("2) -Inspect weapon");
         }
@@ -512,8 +517,14 @@ public class glue {
                     InspectRoom(input2);
                     break;
                 case 2:
-                    dice--;
-                    InspectWeap(input2);
+                    if (weapSearched[input2] && weapLoc[input2] == -1) {
+                        System.out.println("I said there wasn't a weapon in this room, pay attention!");
+                        SearchRoom(input2);
+                    }
+                    else {
+                        dice--;
+                        InspectWeap(input2);
+                    }
                     break;
                 case 3:
                     dice--;
@@ -524,10 +535,46 @@ public class glue {
     }
     
     public static void InspectRoom(int input2) {
-        
+        whilePrint = false;
+        holder = "";
+        if (roomID == input2) {
+            for (int x = 0; x < arrRooms[input2].length(); x++) {
+                if (!whilePrint) {
+                    if (arrRooms[input2].charAt(x) == '_') {
+                        whilePrint = true;
+                    }
+                }
+                else {
+                    holder = holder + arrRooms[input2].charAt(x);
+                }
+            }
+            System.out.println(holder);
+            SearchRoom(input2);
+        }
+        else {
+            for (int x = 0; x < arrRooms[input2].length(); x++) {
+                if (!whilePrint) {
+                    if (arrRooms[input2].charAt(x) == '|') {
+                        whilePrint = true;
+                    }
+                }
+                else {
+                    if (arrRooms[input2].charAt(x) == '_') {
+                        whilePrint = false;
+                    }
+                    else {
+                        holder = holder + arrRooms[input2].charAt(x);
+                    }
+                }
+            }
+            System.out.println(holder);
+            SearchRoom(input2);
+        }
     }
     
     public static void InspectWeap(int input2) {
+        holder = "";
+        whilePrint = false;
         if (!weapSearched[input2]) {
             if (weapLoc[input2] == -1) {
                 System.out.println("There is no weapon in this room");
@@ -543,10 +590,37 @@ public class glue {
         }
         else {
             if (weapLoc[input2] == weapID) {
-                for (int x = 0; x < arrWeap[weapLoc[input2]]. )
+                for (int x = 0; x < arrWeaps[input2].length(); x++) {
+                    if (!whilePrint) {
+                        if (arrWeaps[input2].charAt(x) == '~') {
+                            whilePrint = true;
+                        }
+                    }
+                    else {
+                        holder = holder + arrWeaps[weapLoc[input2]].charAt(x);
+                    }
+                }
+                System.out.println(holder);
+                SearchRoom(input2);
             }
             else {
-                
+                for (int x = 0; x < arrWeaps[input2].length(); x++) {
+                    if (!whilePrint) {
+                        if (arrWeaps[input2].charAt(x) == '|') {
+                            whilePrint = true;
+                        }
+                    }
+                    else {
+                        if (arrWeaps[input2].charAt(x) == '~') {
+                            whilePrint = false;
+                        }
+                        else {
+                            holder = holder + arrWeaps[weapLoc[input2]].charAt(x);
+                        }
+                    }
+                }
+                System.out.println(holder);
+                SearchRoom(input2);
             }
         }
     }
@@ -635,8 +709,9 @@ public class glue {
                         }
                         
                         if (luckyScore == 2) {
-                            System.out.println("You got both right! choose how hard you want to reroll your dice (1-10");
+                            System.out.println("You got both right! choose how hard you want to reroll your dice (1-10)");
                             
+                            isReady = false;
                             while (!isReady) {
                                 scan1 = new Scanner(System.in);
                                 String input = scan1.nextLine();

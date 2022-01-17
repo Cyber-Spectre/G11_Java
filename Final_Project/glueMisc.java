@@ -146,7 +146,7 @@ public class glueMisc {
         
         for (int x = 0; x < 6; x++) {//set weapons
             
-            int weapRand = rand.nextInt(19);
+            int weapRand = rand.nextInt(18);
             if (weapCheck[weapRand]) {
                 x--;
             }
